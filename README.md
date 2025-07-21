@@ -63,3 +63,10 @@ sh scripts/infer_loop_finetuned.sh
 ```bash
 python data/primary/generate_arithmetic_dataset.py
 ```
+
+## 📊 模型评估结果
+
+| 数据集   | baseline | baseline finetuned | loop finetuned |
+|----------|----------|--------------------|----------------|
+| gsm8k    | 70.89%   | 77.71%             | 82.26%         |
+| primary  | 47.30%   | 58.60%             | 74.30%         |
