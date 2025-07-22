@@ -2,6 +2,8 @@
 model_name=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 # non-loop finetuned
 model_name=CauchyLovesU/LLM-reasoning-Non-loop-finetuned
+# non-loop finetuning on mistral
+model_name=WuRen123/mistral-nonloop-finetuned
 
 python3 infer_mp.py \
     --model_name $model_name \
