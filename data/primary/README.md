@@ -35,7 +35,7 @@
    python generate_arithmetic_dataset.py
 
    ```
-4. 脚本运行后，会显示生成进度，并在完成后于同一目录下创建一个名为 `arithmetic_dataset.json` (或你指定的文件名) 的文件。
+4. 脚本运行后，会显示生成进度，并在完成后于同一目录下创建 `arithmetic_dataset_train.json` 和 `arithmetic_dataset_test.json` (或你指定的文件名) 两个文件。
 
 ## 4. 代码逻辑解析
 
