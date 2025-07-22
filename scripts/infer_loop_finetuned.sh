@@ -1,4 +1,6 @@
 model_name=CauchyLovesU/LLM-reasoning-loop-finetuned
+# loop-finetuning on mistral
+model_name=WuRen123/mistral-loop-finetuned
 
 python3 infer_mp.py \
     --model_name $model_name \
