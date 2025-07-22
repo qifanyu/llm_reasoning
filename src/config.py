@@ -9,7 +9,7 @@ def parse_args():
 
     # Data Configuration
     parser.add_argument('--dataset_name', type=str, default='gsm8k', help='Dataset name or path.')
-    parser.add_argument('--dataset_path', type=str, default='data/primary/arithmetic_dataset.json', help='Dataset name or path.')
+    parser.add_argument('--dataset_path', type=str, default='data/primary/arithmetic_dataset_test.json', help='Dataset name or path.')
     parser.add_argument('--test_size', type=int, default=1000, help='Number of test samples.')
     parser.add_argument('--add_cot_prompt', action='store_true', help='Add COT prompt.')
     parser.add_argument('--cot_mode', action='store_true', help='Add COT prompt.')

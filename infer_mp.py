@@ -120,14 +120,12 @@ def main(dp_rank, result_queue):
     dataset_name = args.dataset_name
     device = torch.device(f"cuda:{dp_rank}" if torch.cuda.is_available() else "cpu")
 
-    cache_dir = '/mnt/bn/qifan-nas/cache'
     tokenizer = AutoTokenizer.from_pretrained(
-        "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", padding_side='left', cache_dir=cache_dir
+        "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", padding_side='left'
     )
     model = AutoModelForCausalLM.from_pretrained(
         args.model_name,
-        torch_dtype=torch.bfloat16,
-        cache_dir=cache_dir,
+        torch_dtype=torch.bfloat16
     ).eval().to(device)
 
     alpha = 0.001

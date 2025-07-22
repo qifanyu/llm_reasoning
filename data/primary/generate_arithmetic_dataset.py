@@ -143,11 +143,14 @@ if __name__ == '__main__':
     MIN_OPERANDS = 6
     MAX_OPERANDS = 10
 
-    # 2. 要生成的数据集大小
-    NUM_SAMPLES = 2000
+    # 2. 数据集配置: (样本数量, 文件后缀)
+    DATASET_CONFIGS = [
+        (10000, "_train"),  # 训练集
+        (2000, "_test"),    # 测试集
+    ]
 
-    # 3. 输出文件名
-    OUTPUT_FILE = "arithmetic_dataset.json"
+    # 3. 输出文件名前缀
+    OUTPUT_FILE_PREFIX = "arithmetic_dataset"
 
     # --- 执行 ---
     
@@ -157,14 +160,18 @@ if __name__ == '__main__':
         max_operands=MAX_OPERANDS
     )
 
-    # 创建并保存数据集
-    create_dataset(expression_generator, NUM_SAMPLES, OUTPUT_FILE)
+    # 循环生成所有数据集
+    for num_samples, suffix in DATASET_CONFIGS:
+        output_file = f"{OUTPUT_FILE_PREFIX}{suffix}.json"
+        create_dataset(expression_generator, num_samples, output_file)
 
     # --- 读取并验证一个样本 ---
     print("\n--- 读取生成的文件并展示一个样本 ---")
-    with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+    test_file_path = f"{OUTPUT_FILE_PREFIX}_test.json"
+    with open(test_file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         if data:
             sample = random.choice(data)
+            print(f"从 {test_file_path} 中随机抽取一个样本:")
             print(f"问题: {sample['question']}")
             print(f"答案: {sample['answer']}")
